@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+}
+div#container {
+  padding: 400px;
+}
+h1 {
+  margin: 0px;
+  padding: 0px;
+  height: 20px;
+  top: 0px;
+  text-align: center;
+}
+div#search_box {
+  text-align: center;
+}
+div#title_vplay {
+  text-align: center;
+}
+div#header {
+  margin: 0px;
+  padding: 20px;
+  height: 40px;
+  top: 0px;
+  font-style: italic;
+  font-weight: bolder;
+  color: #ffffff;
+  font-size: 7mm;
+  background-color: #050505;
+  background-image: url(bnr.png);
+  background-position: left top;
+  background-repeat: no-repeat;
+  text-align: right;
+}
+ul#indt {
+  text-align: center;
+
+}
+ul#title_head {
+  margin: 0px;
+  padding: 10px;
+  font-size: 12pt;
+  height: 10px;
+  color: #ffffff;
+  background-color: #cc0000;
+  text-align: center;
+}
+li#title_txt {
+  display: inline;
+  padding-right: 10px;
+}
+div#bottom {
+  text-align: center;
+  width: 100%;
+  bottom: 10%;
+  position: relative;
+}
