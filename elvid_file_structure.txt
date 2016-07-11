@@ -1,0 +1,21 @@
+elvids
+- vid.rb
+- shots.db
+- database.yml
+- config.ru
+- Gemfile.lock
+- Gemfile
+- views
+	-- layout.erb
+	-- index.erb
+	-- work_search.erb
+	-- work_result_list.erb
+	-- vplay.erb
+	-- scene_search.erb
+	-- scene_result_list.erb
+	-- vplay_scene.erb
+	-- shot_search.erb
+	-- shot_result_list.erb
+	-- vplay_shot.erb
+- public
+	-- table.css
