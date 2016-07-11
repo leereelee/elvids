@@ -1,0 +1,59 @@
+<STYLE type="text/css">
+	div.blocka{
+			float: left;
+			width: 640px;
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+	div.blockb{
+		}
+	div.blockc{
+			clear:both;
+		}
+    div.mybody{
+		margin-left: 5%;
+		margin-right: 5%;
+    		}
+    		
+	.scr{
+			overflow: scroll;
+			width: 360px;
+			height: 250px;
+			border: outset 1px;
+		}
+	.scr_v{
+			overflow: scroll;
+			width: 1800px;
+			height: 220px;
+			border: outset 1px;
+		}
+</STYLE>
+<h3 align='center'><%= @title %></h3>
+
+<div class="mybody">
+	<div class="blocka">
+			<td valign='top'>
+				<video src="<%= @idt %>.mp4" preload="auto" poster="<%= @idt %>.jpg" controls width="640" height="480"></video>
+			</td>
+	</div>
+
+	<div class="blockb">
+		<h3>作品情報</h3>
+			<table id="f">
+				<tr id="f"><td id="f">タイトル：</td><td id="f"><%= @title %></td></tr>
+				<tr id="f"><td id="f">概要：</td><td id="f"><%= @des %></td></tr>
+				<tr id="f"><td id="f">製作：</td><td id="f"><%= @creator %></td></tr>
+				<tr id="f"><td id="f">配給：</td><td id="f"><%= @publisher %></td></tr>
+				<tr id="f"><td id="f">再生時間：</td><td id="f"><%= @duration %>　分</td></tr>
+			</table>
+		<h3>内容</h3>
+		<div class="scr">
+				<%= @des %>
+		</div>
+	</div>
+
+
+	<div class="blockc">
+		<br />
+	</div>
+</div>

@@ -1,0 +1,95 @@
+﻿<STYLE type="text/css">
+	.scr{
+			overflow: scroll;
+			height: 120px;
+		}
+</STYLE>
+
+<h4>シーン検索結果: <%= @keyword %></h4>
+<hr />
+<% @results.each do |result| %>
+<div style="padding-left:2%; padding-right:2%;">
+<table border='0'>
+	<th width='1%'><%= result.sid %></th>
+	<th>
+		<td valign='top' width='250px'>
+			<dt>
+				<form method = "post" action = "vplay_scene" name="00<%= result.sid %>">
+						<input type="hidden" name="id" value="<%= result.wid %>" />
+						<input type="hidden" name="contributor" value="<%= result.contributor %>" />
+						<input type="hidden" name="description" value="<%= result.description %>" />
+						<input type="hidden" name="title" value="<%= result.title %>" />
+						<input type="hidden" name="creator" value="<%= result.creator %>" />
+						<input type="hidden" name="publisher" value="<%= result.publisher %>" />
+						<input type="hidden" name="lang" value="<%= result.lang %>" />
+						<input type="hidden" name="description" value="<%= result.sdesc %>" />
+						<input type="hidden" name="level" value="<%= result.lev_scene %>" />
+						<input type="hidden" name="duration" value="<%= result.sfl %>" />
+						<input type="hidden" name="ctmn_hour" value="<%= result.ctmn_hour %>" />
+						<input type="hidden" name="ctmn_min" value="<%= result.ctmn_min %>" />
+						<input type="hidden" name="ctmn_sec" value="<%= result.ctmn_sec %>" />
+						<input type="hidden" name="ctmx_hour" value="<%= result.ctmx_hour %>" />
+						<input type="hidden" name="ctmx_min" value="<%= result.ctmx_min %>" />
+						<input type="hidden" name="ctmx_sec" value="<%= result.ctmx_sec %>" />
+						<input type="hidden" name="rel_w" value="<%= result.ctmx_sec %>" />
+						<a href="javascript:document.forms['00<%= result.sid %>'].submit();"><img src='<%= result.sid %>.png' width='200px' height='120px' /></a>
+				</form>
+			</dt>
+		</td>
+	</th>
+	
+	<th>
+		<td valign='top' width='100px'>
+				<dt>出演者</dt>
+				<dt>タイトル</dt>
+				<dt>作成者</dt>				
+				<dt>提供者</dt>
+				<dt>言語</dt>
+				<dt>再生時間</dt>
+				<dt>タイムコード</dt>
+		</td>
+
+		<td valign='top' width='300px'>
+				<dt><%= result.contributor %></dt>
+				<dt><%= result.title %></dt>
+				<dt><%= result.creator %></dt>
+				<dt><%= result.publisher %></dt>
+				<dt><%= result.lang %></dt>
+				<dt><%= result.sfl %> sec.</dt>
+				<dt>
+					<form method = "post" action = "vplay_scene" name="00<%= result.sid %>">
+						<input type="hidden" name="id" value="<%= result.wid %>" />
+						<input type="hidden" name="contributor" value="<%= result.contributor %>" />
+						<input type="hidden" name="description" value="<%= result.description %>" />
+						<input type="hidden" name="title" value="<%= result.title %>" />
+						<input type="hidden" name="creator" value="<%= result.creator %>" />
+						<input type="hidden" name="publisher" value="<%= result.publisher %>" />
+						<input type="hidden" name="lang" value="<%= result.lang %>" />
+						<input type="hidden" name="description" value="<%= result.sdesc %>" />
+						<input type="hidden" name="level" value="<%= result.lev_scene %>" />
+						<input type="hidden" name="duration" value="<%= result.sfl %>" />
+						<input type="hidden" name="ctmn_hour" value="<%= result.ctmn_hour %>" />
+						<input type="hidden" name="ctmn_min" value="<%= result.ctmn_min %>" />
+						<input type="hidden" name="ctmn_sec" value="<%= result.ctmn_sec %>" />
+						<input type="hidden" name="ctmx_hour" value="<%= result.ctmx_hour %>" />
+						<input type="hidden" name="ctmx_min" value="<%= result.ctmx_min %>" />
+						<input type="hidden" name="ctmx_sec" value="<%= result.ctmx_sec %>" />
+						<input type="hidden" name="rel_w" value="<%= result.ctmx_sec %>" />
+						<a href="javascript:document.forms['00<%= result.sid %>'].submit();"><%= result.ctmn_hour %>:<%= result.ctmn_min %>:<%= result.ctmn_sec %> - <%= result.ctmx_hour %>:<%= result.ctmx_min %>:<%= result.ctmx_sec %></a>
+					</form>
+				</dt>
+		</td>
+	</th>
+
+	<th>
+		<td valign='top' width='50%' >
+				<div class="scr">
+					<dt><%= result.sdesc %></dt>
+				</div>
+			
+		</td>
+	</th>
+</table>
+<hr />
+</div>
+<% end %>

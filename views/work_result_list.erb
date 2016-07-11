@@ -1,0 +1,60 @@
+﻿<% @results.each do |result| %>
+<div style="padding-left:5%; padding-right:5%;">
+<table border='0'>
+	<th width='1%'><%= result.id %></th>
+	<th>
+		<td></td>
+		<td valign='top' width='250'>
+			<dl>
+				<dt>
+					<form method = "post" action = "vplay" name="00<%= result.idt %>">
+						<input type="hidden" name="title" value="<%= result.title %>" />
+						<input type="hidden" name="description" value="<%= result.description %>" />
+						<input type="hidden" name="creator" value="<%= result.creator %>" />
+						<input type="hidden" name="publisher" value="<%= result.publisher %>" />
+						<input type="hidden" name="duration" value="<%= result.format_length %>" />
+						<input type="hidden" name="idt" value="<%= result.idt %>" />
+						<a href="javascript:document.forms['00<%= result.idt %>'].submit();"><img src='<%= result.id %>.jpg' width='240' height='150' /></a>
+					</form>
+				</dt>
+			</dl>
+		</td>
+	</th>
+	<td width='30'></td>
+	<th>
+		<td valign='top' width='90'>
+			<dl>
+				<dt><b>［タイトル］</b></dt>
+				<dt><b>［概要］</b></dt>
+				<dt><b>［作成者］</b></dt>
+				<dt><b>［提供］</b></dt>
+				<dt><b>［再生時間］</b></dt>
+				<dt><b>［言語］</b></dt>
+			</dl>
+		</td>
+		<td width='10'></td>
+		<td valign='top' width='700'>
+			<dl>
+				<dt>
+					<form method = "post" action = "vplay" name="00<%= result.idt %>">
+						<input type="hidden" name="title" value="<%= result.title %>" />
+						<input type="hidden" name="description" value="<%= result.description %>" />
+						<input type="hidden" name="creator" value="<%= result.creator %>" />
+						<input type="hidden" name="publisher" value="<%= result.publisher %>" />
+						<input type="hidden" name="duration" value="<%= result.format_length %>" />
+						<input type="hidden" name="idt" value="<%= result.idt %>" />
+						<a href="javascript:document.forms['00<%= result.idt %>'].submit();"><%= result.title %></a>
+					</form>
+				</dt>
+				<dt><%= result.description %></dt>
+				<dt><%= result.creator %></dt>
+				<dt><%= result.publisher %></dt>
+				<dt><%= result.format_length %>分</dt>
+				<dt><%= result.lang %></dt>
+			</dl>
+		</td>
+	</th>
+</table>
+<hr />
+</div>
+<% end %>

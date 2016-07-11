@@ -1,0 +1,82 @@
+﻿<h4>ショット検索結果: <%= @keyword %></h4>
+<hr />
+<% @results.each do |result| %>
+<div style="padding-left:2%; padding-right:2%;">
+<table border='0'>
+	<th><%= result.shid %></th>
+	<td width='1%'></td>
+	<th>
+		<td valign='top' width='250px'>
+				<dt>
+					<form method = "post" action = "vplay_shot" name="00<%= result.shid %>">
+						<input type="hidden" name="id" value="<%= result.work_id %>" />
+						<input type="hidden" name="contributor" value="<%= result.contributor %>" />
+						<input type="hidden" name="description" value="<%= result.description %>" />
+						<input type="hidden" name="title" value="<%= result.title %>" />
+						<input type="hidden" name="creator" value="<%= result.creator %>" />
+						<input type="hidden" name="publisher" value="<%= result.publisher %>" />
+						<input type="hidden" name="lang" value="<%= result.lang %>" />
+						<input type="hidden" name="description" value="<%= result.dsc_sh %>" />
+						<input type="hidden" name="level" value="<%= result.type_lev_sh %>" />
+						<input type="hidden" name="duration" value="<%= result.format_length_sh %>" />
+						<input type="hidden" name="ctmn_hour" value="<%= result.ctmn_hour_sh %>" />
+						<input type="hidden" name="ctmn_min" value="<%= result.ctmn_min_sh %>" />
+						<input type="hidden" name="ctmn_sec" value="<%= result.ctmn_sec_sh %>" />
+						<input type="hidden" name="ctmx_hour" value="<%= result.ctmx_hour_sh %>" />
+						<input type="hidden" name="ctmx_min" value="<%= result.ctmx_min_sh %>" />
+						<input type="hidden" name="ctmx_sec" value="<%= result.ctmx_sec_sh %>" />
+						<a href="javascript:document.forms['00<%= result.shid %>'].submit();"><img src='<%= result.scene_id %>.png' width='200px' height='120px' /></a>
+					</form>	
+				</dt>
+		</td>
+	</th>
+
+	<th>
+		<td valign='top' width='120px'>
+				<dt>出演者</dt>
+				<dt>タイトル</dt>
+				<dt>作成者</dt>
+				<dt>提供者</dt>
+				<dt>言語</dt>
+				<dt>再生時間</dt>
+				<dt>タイムコード</dt>
+		</td>
+		<td valign='top' width='450'>
+				<dt><%= result.contributor %></dt>
+				<dt><%= result.title %></dt>
+				<dt><%= result.creator %></dt>
+				<dt><%= result.publisher %></dt>
+				<dt><%= result.lang %></dt>
+				<dt><%= result.format_length_sh %> sec.</dt>
+				<dt>
+					<form method = "post" action = "vplay_shot" name="00<%= result.shid %>">
+						<input type="hidden" name="id" value="<%= result.work_id %>" />
+						<input type="hidden" name="contributor" value="<%= result.contributor %>" />
+						<input type="hidden" name="description" value="<%= result.description %>" />
+						<input type="hidden" name="title" value="<%= result.title %>" />
+						<input type="hidden" name="creator" value="<%= result.creator %>" />
+						<input type="hidden" name="publisher" value="<%= result.publisher %>" />
+						<input type="hidden" name="lang" value="<%= result.lang %>" />
+						<input type="hidden" name="description" value="<%= result.dsc_sh %>" />
+						<input type="hidden" name="level" value="<%= result.type_lev_sh %>" />
+						<input type="hidden" name="duration" value="<%= result.format_length_sh %>" />
+						<input type="hidden" name="ctmn_hour" value="<%= result.ctmn_hour_sh %>" />
+						<input type="hidden" name="ctmn_min" value="<%= result.ctmn_min_sh %>" />
+						<input type="hidden" name="ctmn_sec" value="<%= result.ctmn_sec_sh %>" />
+						<input type="hidden" name="ctmx_hour" value="<%= result.ctmx_hour_sh %>" />
+						<input type="hidden" name="ctmx_min" value="<%= result.ctmx_min_sh %>" />
+						<input type="hidden" name="ctmx_sec" value="<%= result.ctmx_sec_sh %>" />
+						<a href="javascript:document.forms['00<%= result.shid %>'].submit();"><%= result.ctmn_hour_sh %>:<%= result.ctmn_min_sh %>:<%= result.ctmn_sec_sh %> - <%= result.ctmx_hour_sh %>:<%= result.ctmx_min_sh %>:<%= result.ctmx_sec_sh %></a>
+					</form>
+				</dt>
+		</td>
+	</th>
+	<th>
+		<td valign='top' width='50%'>
+				<dt><%= result.dsc_sh %></dt>
+		</td>
+	</th>
+</table>
+<hr />
+</div>
+<% end %>

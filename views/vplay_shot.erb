@@ -1,0 +1,80 @@
+<STYLE type="text/css">
+	div.blocka{
+			float: left;
+			width: 640px;
+			padding-left: 100px;
+			padding-right: 100px;
+		}
+	div.blockb{
+		}
+	div.blockc{
+			clear:both;
+		}
+
+ div.mybody{
+    		margin-left: 5%;
+    		margin-right: 5% ;
+    		}
+
+	.scr{
+			overflow: scroll;
+			width: 360px;
+			height: 200px;
+			border: outset 1px;
+		}
+	.scr_v{
+			overflow: scroll;
+			width: 1800px;
+			height: 220px;
+			border: outset 1px;
+		}
+</STYLE>
+<script>
+	function checkTime(et= <%= @ctmx_h %>:<%= @ctmx_m %>:<%= @ctmx_s %>){
+		v = document.getElementById('my_video');
+		ct = v.currentTime();
+		if(ct==et){document.history.back}
+		}
+</script>
+
+<h3 align='center'><%= @title %></h3>
+
+<div class="mybody">
+
+<div class="blocka">	
+		<td valign='top'>
+			<video id="my_video"
+					src="<%= @id %>.mp4#t=<%= @ctmn_h %>:<%= @ctmn_m %>:<%= @ctmn_s %>,<%= @ctmx_h %>:<%= @ctmx_m %>:<%= @ctmx_s %>"
+					preload="none" poster="00<%= @id %>.jpg"
+					controls width="640" height="480" >
+			</video>
+		<br />
+		</td>
+</div>
+
+<div class="blockb">
+<h3>基本情報</h3>
+	<table id="f">
+			<tr id="f"><td id="f">出演者：</td><td id="f"><%= @contributor %></td></tr>
+			<tr id="f"><td id="f">タイトル：</td><td id="f"><%= @title %></td></tr>
+			<tr id="f"><td id="f">作成者：</td><td id="f"><%= @creator %></td></tr>
+			<tr id="f"><td id="f">提供者：</td><td id="f"><%= @publisher %></td></tr>
+			<tr id="f"><td id="f">言語：</td><td id="f"><%= @lang %></td></tr>
+			<tr id="f"><td id="f">レベル：</td><td id="f"><%= @level %></td></tr>
+			<tr id="f"><td id="f">タイムコード：</td><td id="f"><%= @ctmn_h %>:<%= @ctmn_m %>:<%= @ctmn_s %> - <%= @ctmx_h %>:<%= @ctmx_m %>:<%= @ctmx_s %></td></tr>
+			<tr id="f"><td id="f">再生時間：</td><td id="f"><%= @duration %> 秒</td></tr>
+	</table>
+	<h3>内容</h3>
+	
+	<div class="scr">
+			<%= @des %>
+	</div>
+</div>
+
+
+<div class="blockc">
+
+</div>
+
+</div>
+
