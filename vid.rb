@@ -21,6 +21,15 @@ class Shot < ActiveRecord::Base
 	belongs_to :scene
 end
 
+helpers do
+  def highlight(text, keywords)
+    keywords.each { |kw|
+      text.gsub!(/#{kw}/) {|kw| "<span style='background: yellow;'>#{kw}</span>" }
+    }
+    "#{text}"
+  end
+end
+
 #get '/' do
 #	erb :index
 #end

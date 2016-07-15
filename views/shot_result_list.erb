@@ -1,4 +1,4 @@
-﻿<h4>ショット検索結果: <%= @keyword %></h4>
+﻿<h4>ショット検索結果:<% @keywords.each do |kw| %><%= kw %> <% end %></h4>
 <hr />
 <% @results.each do |result| %>
 <div style="padding-left:2%; padding-right:2%;">
@@ -73,7 +73,7 @@
 	</th>
 	<th>
 		<td valign='top' width='50%'>
-				<dt><%= result.dsc_sh %></dt>
+				<dt><%= highlight(result.dsc_sh, @keywords) %></dt>
 		</td>
 	</th>
 </table>
