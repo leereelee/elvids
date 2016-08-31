@@ -40,9 +40,12 @@ end
 
 post '/work_search_result' do
 	@title = "RESULT"
-	@keyword = params["keyword"]
-	@results = Work.where("title like?", "%#{@keyword}%")
-	erb :work_result_list
+	@keywords = params["keyword"].gsub(/　/," ").split()
+    @results = Work.select('works.*')
+	@keywords.each {|keyword|
+		@results = @results.where("title like?", "%#{keyword}%")
+							 }
+    erb :work_result_list
 end
 
 post '/vplay' do
@@ -62,9 +65,11 @@ end
 
 post '/scene_search_result' do
 	@title = "RESULT"
-	@keyword = params["keyword"]
-#	@results = Scene.where("description like?", "%#{@keyword}%")
-	@results = Scene.select('scenes.*, scenes.id AS sid, works.*, works.id AS wid, scenes.description AS sdesc, scenes.format_length AS sfl, scenes.type_lev AS lev_scene').joins('INNER JOIN works ON works.id = work_id').where("scenes.description like?", "%#{@keyword}%")
+	@keywords = params["keyword"].gsub(/　/," ").split()
+	@results = Scene.select('scenes.*, scenes.id AS sid, works.*, works.id AS wid, scenes.description AS sdesc, scenes.format_length AS sfl, scenes.type_lev AS lev_scene').joins('INNER JOIN works ON works.id = work_id')
+	@keywords.each{|keyword|
+		@results = @results.where("scenes.description like?", "%#{keyword}%")
+	}
 	erb :scene_result_list
 end
 
